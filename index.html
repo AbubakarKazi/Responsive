@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="etc.css">
+</head>
+<body>
+   <nav class="topnav">
+     <div class="top"> <img src="logo.jpg" alt="logo">
+      <i>1. HISTORY</i>
+      <i>2. TEAM</i></div>
+     <div class="center"> <h1>LOSANGELES <br> MOUNTAINS</h1></div>
+   </nav>
+   
+<div class="center1">
+      <img src="logo.jpg" alt="logo">
+      <h1>LOSANGELES <br> MOUNTAINS</h1>
+      <i>1. HISTORY</i>
+      <i>2. TEAM</i></div>
+</div>
+
+<div class="centernav">
+   <span class="no">01. <span class="apl">HISTORY</span></span>
+   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum saepe eius nulla dicta, distinctio earum nam quos excepturi suscipit atque, unde delectus molestias repudiandae, sapiente iure alias laudantium ullam. Praesentium, ipsum voluptatem eaque eligendi obcaecati dicta, quia nobis nemo et unde ad sit, reiciendis aliquam assumenda illum eum vitae debitis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam at iusto hic, ad dolor porro animi illo exercitationem dolore doloremque incidunt itaque, in rerum eveniet nostrum iste earum dolores, voluptates ipsam eaque temporibus reprehenderit voluptatibus. Quibusdam cupiditate, totam laborum nulla quo dolor aliquid impedit. Beatae quo iure neque id vel!</p>
+  
+  <div class="carousel">
+   <div class="display-area">
+      <div class="cards-wrapper">
+        
+        <div class="card"><img src="bg1.jpg" alt=""></div>
+        <div class="card"><img src="bg2.jpg" alt=""></div>  
+        <div class="card"><img src="bg3.jpg" alt=""></div>
+        <div class="card"><img src="bg4.jpg" alt=""></div>
+    
+        <div class="card"><img src="bg1.jpg" alt=""></div>
+        <div class="card"><img src="bg2.jpg" alt=""></div>  
+        <div class="card"><img src="bg3.jpg" alt=""></div>
+        <div class="card"><img src="bg4.jpg" alt=""></div>
+    
+        <div class="card"><img src="bg1.jpg" alt=""></div>
+        <div class="card"><img src="bg2.jpg" alt=""></div>  
+        <div class="card"><img src="bg3.jpg" alt=""></div>
+        <div class="card"><img src="bg4.jpg" alt=""></div>
+    
+        <div class="card"><img src="bg1.jpg" alt=""></div>
+        <div class="card"><img src="bg2.jpg" alt=""></div>  
+        <div class="card"><img src="bg3.jpg" alt=""></div>
+        <div class="card"><img src="bg4.jpg" alt=""></div>
+    
+        
+      </div> 
+    </div>
+    
+    <div class="dots-wrapper">
+      <button class="dot active"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+    </div>
+    
+</div>
+</div>
+
+<div class="content">
+
+   <div class="box">
+
+      <h1>02.</h1>
+      <h1>CLIMB</h1>
+
+
+   </div>
+   <div class="box2"><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque est voluptatem voluptate aliquam vitae possimus explicabo corrupti non nulla corporis?</p></div>
+
+
+</div>
+
+<div class="mount">
+<h1>MOUNTAIN 1</h1>
+<h1>MOUNTAIN 2</h1>
+</div>
+
+<div class="last">
+   <div class="con3">
+    <div class="con4">  <h1>SCHEDULE</h1></div>
+   <div class="con5"><p>25 Nov 2016</p> <p>Vistablum virrar</p></div>
+   <div class="con5"><p>25 Nov 2016</p> <p>Vistablum virrar</p></div>
+   <div class="con5"><p>25 Nov 2016</p> <p>Vistablum virrar</p></div>
+   <div class="con5"><p>25 Nov 2016</p> <p>Vistablum virrar</p></div>
+   <div class="con5"><p>25 Nov 2016</p> <p>Vistablum virrar</p></div>
+   <div class="con5"><p>25 Nov 2016</p> <p>Vistablum virrar</p></div>
+   </div>
+</div>
+
+<div class="center2">
+   <img src="logo.jpg" alt="logo">
+   <h1>LOSANGELES <br> MOUNTAINS</h1>
+   <i>COPYRIGHT 2016 ALL RIGHTS RESERVED.</i>
+
+</div>
+
+
+
+<script>
+   // In HTML, .display-area has the width of 4 cards = 880px. Each card is 200px width and margin set to 10px.
+// .display-area has a .cards-wrapper which contains all the cards. .cards-wrapper is set to display flex.
+// .display-area has overflow hidden to hide the portion of cards-wrapper which extends beyond the container's width.
+
+const wrapper = document.querySelector('.cards-wrapper');
+// console.log(wrapper.clientWidth);
+
+// grab the dots
+const dots = document.querySelectorAll('.dot');
+// the default active dot num which is array[0]
+let activeDotNum = 0;
+
+dots.forEach((dot, idx) => {  
+//   number each dot according to array index
+  dot.setAttribute('data-num', idx);
+  
+//   add a click event listener to each dot
+  dot.addEventListener('click', (e) => {
+    
+    let clickedDotNum = e.target.dataset.num;
+    // console.log(clickedDotNum);
+//     if the dot clicked is already active, then do nothing
+    if(clickedDotNum == activeDotNum) {
+      // console.log('active');
+      return;
+    }
+    else {
+      // console.log('not active');
+      // shift the wrapper
+      let displayArea = wrapper.parentElement.clientWidth;
+      // let pixels = -wrapper.clientWidth * clickedDotNum;
+      let pixels = -displayArea * clickedDotNum
+      wrapper.style.transform = 'translateX('+ pixels + 'px)';
+//       remove the active class from the active dot
+      dots[activeDotNum].classList.remove('active');
+//       add the active class to the clicked dot
+      dots[clickedDotNum].classList.add('active');
+//       now set the active dot number to the clicked dot;
+      activeDotNum = clickedDotNum;
+    }
+    
+  });
+});
+</script>
+</body>
+</html>
